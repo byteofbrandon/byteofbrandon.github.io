@@ -1,9 +1,11 @@
 ---
 layout: page
-title: "Offensive"
+title: "Offensive Security"
 permalink: /offensive/
 ---
 
-# Offensive Resources
+# Offensive Security Tools
 
-Welcome to the Offensive section! Here, you'll find tutorials, projects, and insights into red teaming.
+## Web Enumeration
+- [Gobuster](/offensive/gobuster/)
+- [Burp Suite](/offensive/burp/)
