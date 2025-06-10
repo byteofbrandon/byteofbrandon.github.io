@@ -52,3 +52,9 @@ body::before {
   opacity: 0.05;
   z-index: -1;
 }
+.page__hero-caption {
+  text-align: left !important;
+  padding-left: 2rem !important;
+  margin-left: 0 !important;
+  max-width: 600px;
+}
