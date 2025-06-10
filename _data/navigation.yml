@@ -3,7 +3,7 @@ main:
   - title: "Home"
     url: /
   - title: "Coding"
-    url: /
+    url: /coding/
   - title: "Offensive"
     url: /
   - title: "Defensive"
