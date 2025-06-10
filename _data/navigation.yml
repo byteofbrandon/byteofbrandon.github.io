@@ -4,9 +4,9 @@ main:
     url: /
   - title: "Coding"
     url: /
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Offensive"
+    url: /
+  - title: "Defensive"
+    url: /
+  - title: "About"
+    url: /sitemap/
