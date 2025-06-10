@@ -1,104 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Byte of Brandon</title>
+---
+layout: home
+author_profile: true
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.4"
+  overlay_image: /assets/images/banner.png
+  caption: "<span style='color:#00ffd5; font-weight:bold;'>Cybersecurity insights, CTFs, and APT deep dives</span>"
+---
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code&display=swap" rel="stylesheet">
+<style>
+h1, h2, h3, h4 {
+  color: #00ffd5;
+  font-family: 'Fira Code', monospace;
+}
 
-  <!-- Styles -->
-  <style>
-    :root {
-      --accent: #00ffe1;
-      --code: #33ff57;
-      --link: #00b7ff;
-      --background: #0a0a0a;
-      --box-glow: rgba(0, 255, 225, 0.15);
-    }
+p {
+  color: #cccccc;
+  font-family: 'Fira Code', monospace;
+}
 
-    body {
-      background-color: var(--background);
-      color: #ffffff;
-      font-family: 'Fira Code', monospace;
-      margin: 0;
-      padding: 2rem;
-      background-image: url('banner.png');
-      background-repeat: no-repeat;
-      background-position: top center;
-      background-size: cover;
-    }
+a {
+  color: #00ffd5;
+  text-decoration: underline;
+}
 
-    h1, h2, h3 {
-      font-family: 'Share Tech Mono', monospace;
-      color: var(--accent);
-    }
+a:hover {
+  color: #ff4cf0;
+}
 
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
+body {
+  background-color: #0f0f0f;
+}
 
-    a:hover {
-      color: #00e0ff;
-      text-decoration: underline;
-    }
+hr {
+  border-color: #00ffd5;
+}
+</style>
 
-    .glow-box {
-      border: 1px solid var(--accent);
-      box-shadow: 0 0 15px var(--box-glow);
-      padding: 1rem;
-      border-radius: 10px;
-      margin: 2rem 0;
-      background-color: #111;
-    }
-
-    pre, code {
-      background: #111;
-      color: var(--code);
-      padding: 0.5rem;
-      border-left: 3px solid var(--accent);
-      font-family: 'Fira Code', monospace;
-      overflow-x: auto;
-      display: block;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-
-    .subtitle {
-      color: #ccc;
-      font-size: 1.2rem;
-      margin-top: -1rem;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="hero">
-    <h1>Byte of Brandon</h1>
-    <div class="subtitle">Cybersecurity, Code, and Capture the Flag</div>
-  </div>
-
-  <div class="glow-box">
-    <h2>🔐 CTF Walkthroughs</h2>
-    <p>Step-by-step guides for solving real-world Capture the Flag challenges. Learn how to think like an attacker and act like a pro defender.</p>
-  </div>
-
-  <div class="glow-box">
-    <h2>💻 Code Snippets</h2>
-    <pre><code># Nmap Example
-nmap -sV 10.10.10.10</code></pre>
-  </div>
-
-  <footer style="text-align:center; margin-top: 4rem; font-size: 0.9rem; color: #777;">
-    © 2025 Byte of Brandon
-  </footer>
-</body>
-</html>
+Welcome to the <strong>Byte of Brandon</strong> blog, where I document my journey through <span style="color:#00ffd5">cybersecurity</span> — from CTFs and malware analysis to real-world threats and network forensics.
