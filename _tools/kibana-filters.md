@@ -69,6 +69,14 @@ hr {
   border-radius: 0 8px 8px 0;
 }
 
+.filter-section2 {
+  background: rgba(0, 215, 255, 0.05);
+  border-left: 4px solid #00ffd5;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
 .code-block {
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid #333;
@@ -109,88 +117,32 @@ Will match results with one level of deviance (servor)
 
 </div>
 
-## Common Filter Examples
+<div class="filter-section2">
 
-### Basic Field Filtering
-
-<div class="code-block">
-# Filter by specific field value
-status:200
-
-# Filter by multiple values
-status:(200 OR 404)
-
-# Filter by field range
-response_time:[100 TO 500]
-</div>
-
-### Date Range Filtering
-
-<div class="code-block">
-# Last 24 hours
-@timestamp:[now-24h TO now]
-
-# Specific date range
-@timestamp:[2025-06-01 TO 2025-06-10]
-</div>
-
-<div class="tip-box">
-
-#### Pro Tip
-Use the time picker in Kibana's interface for quick date range selection, or create custom filters for more complex time-based queries.
+<strong style="color: #00ffd5; font-weight: bold;">Proximity Searches</strong><br>
+Find results with keywords in a set proximity of eachother<br>
+Ex: log_message:"server error"~1<br>
+Will match results with "servor" and "error" 1 word or less from eachother  
 
 </div>
-
-### Advanced Query Techniques
 
 <div class="filter-section">
 
-**Wildcard Searches**: Use `*` and `?` for pattern matching
-- `user.name:john*` (matches john, johnny, etc.)
-- `ip:192.168.1.?` (matches any single character)
-
-**Boolean Logic**: Combine filters with AND, OR, NOT
-- `status:200 AND method:GET`
-- `NOT status:404`
-
-**Nested Field Filtering**: Access nested objects
-- `user.details.department:security`
-
+<strong style="color: #00ffd5; font-weight: bold;">Regular Expressions</strong><br>
+Wrap regular expressions in forward slashes<br>
+Ex: event_type:/.*/<br>
+  
 </div>
 
-## Filter Management
 
-### Adding Filters
-1. Click "+ Add filter" in the filter bar
-2. Select field, operator, and value
-3. Choose to include or exclude results
+<div class="code-block">
+Last 24 hours<br>
+@timestamp:[now-24h TO now]<br>
 
-### Editing Filters
-- Click on any existing filter to modify
-- Toggle between include/exclude modes
-- Enable/disable filters temporarily
-
-### Saving Filters
-- Pin filters to keep them across searches
-- Save filter combinations as saved searches
-- Export filters for reuse in other dashboards
-
-<div class="tip-box">
-
-#### Best Practices
-- Start with broad filters and narrow down progressively
-- Use field autocomplete to avoid typos
-- Combine time-based and content-based filters for optimal performance
-- Pin frequently used filters to save time
-
+Specific date range<br>
+@timestamp:[2025-06-01 TO 2025-06-10]<br>
+@timestamp<yyyy-MM-dd
 </div>
-
-## Performance Considerations
-
-- **Index Patterns**: Ensure your filters match your index pattern structure
-- **Field Types**: Understand field mapping (keyword vs text fields)
-- **Query Caching**: Kibana caches frequent queries for better performance
-- **Time Ranges**: Narrower time ranges improve query speed
 
 ---
 
