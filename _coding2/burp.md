@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Burp Suite"
-permalink: /coding/burp/
+permalink: /offensive/burp/
 ---
 
 # Burp Suite Guide
