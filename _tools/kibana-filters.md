@@ -1,3 +1,4 @@
+
 ---
 layout: default
 author_profile: true
@@ -11,7 +12,6 @@ header:
       <h1 style="margin-bottom: 0.3rem; color: #00ffd5; font-family: 'Fira Code', monospace;">Welcome to the Byte of Brandon</h1>
       <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Documenting my journey through cybersecurity</p>
     </div>
-------
 title: "Kibana Filters Overview"
 tags: [kibana, filters, tools]
 last_updated: 2025-06-10
