@@ -96,10 +96,10 @@ hr {
 
 <div class="filter-section">
 
-Fuzzy Searches  
-Find results similar to query  
-Ex: host_name:server01~1  
-Will match results with one level of deviance (servor)
+Fuzzy Searches\
+Find results similar to query\  
+Ex: host_name:server01~1\  
+Will match results with one level of deviance (servor)\
 
 </div>
 
