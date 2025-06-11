@@ -7,9 +7,21 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-.page__hero-caption {
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  margin-left: 2rem;
+
+/* At the bottom of assets/css/main.scss */
+
+.page__hero--overlay {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  padding-left: 2rem;
 }
+
+.page__hero-caption {
+  align-self: flex-start !important;
+  text-align: left !important;
+  max-width: 600px;
+  padding-left: 0;
+}
+
