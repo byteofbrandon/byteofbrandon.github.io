@@ -20,7 +20,7 @@ toc_icon: "filter"
 ---
 
 <style>
-/* Base Typography - Only target content area */
+/* Base Typography - Only apply to main content */
 .page__content h1, 
 .page__content h2, 
 .page__content h3, 
@@ -116,7 +116,7 @@ hr {
   margin-top: 0;
 }
 
-/* Text Styling - Only in content area */
+/* Text Styling - Only in content */
 .page__content strong, 
 .page__content b,
 .content-wrapper strong,
