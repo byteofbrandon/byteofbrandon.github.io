@@ -1,11 +1,11 @@
 ---
-title: "Kibana Filters Explained"
-tags: [kibana, filters, logging, elasticsearch]
-date: 2025-06-10
+title: "Kibana Filters Overview"
+tags: [kibana, filters, tools]
 last_updated: 2025-06-10
-draft: false
 ---
-# Kibana Filters Explained
 
-... your content here ...
+# Kibana Filters Overview
+
+This document explains how Kibana filters work...
+
 

@@ -1,0 +1,17 @@
+collections:
+  tools:
+    output: true
+    permalink: /tools/:title/
+  scripts:
+    output: true
+    permalink: /scripts/:title/
+
+defaults:
+  - scope:
+      type: tools
+    values:
+      layout: collection
+  - scope:
+      type: scripts
+    values:
+      layout: collection
