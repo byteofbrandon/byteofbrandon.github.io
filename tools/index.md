@@ -44,3 +44,7 @@ hr {
   border-color: #00ffd5;
 }
 </style>
+
+## Tools
+
+- [Kibana Filters Overview]({{ '/tools/kibana-filters' | relative_url }})
