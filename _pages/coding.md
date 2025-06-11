@@ -9,4 +9,4 @@ permalink: /coding/
 Welcome to the Coding section! Here, you'll find tutorials, projects, and insights into programming.
 
 ## Sample Malware
-- [Ransomware](/offensive/gobuster)
+- [Ransomware](/coding/ransomware)
