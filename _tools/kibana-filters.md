@@ -103,8 +103,8 @@ strong, b {
 <div class="filter-section">
 
 <strong style="color: #00ffd5; font-weight: bold;">Fuzzy Searches</strong><br>
-Find results similar to query  
-Ex: host_name:server01~1  
+Find results similar to query<br>
+Ex: host_name:server01~1<br>
 Will match results with one level of deviance (servor)  
 
 </div>
