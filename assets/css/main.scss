@@ -7,3 +7,9 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+.page__hero-caption {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  margin-left: 2rem;
+}
