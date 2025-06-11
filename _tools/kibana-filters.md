@@ -84,20 +84,28 @@ hr {
 
 <div class="content-wrapper">
 
-## What are Kibana Filters?
+## Advanced ELK Queries
 
-Kibana filters are powerful tools that allow you to narrow down your data view by applying specific criteria to your search results. They help you focus on the data that matters most for your analysis.
+"Example" will match only Example
+example will match anything containing example
+
+@timestamp<"yyyy-MM-ddTHH:mm:ssZ"
+@timestamp>yyyy-MM-dd
 
 <div class="filter-section">
-
-### Types of Filters
-
-**Query String Filters**: Use Lucene query syntax for complex searches
-**Field Filters**: Filter by specific field values
-**Range Filters**: Filter by date ranges or numeric ranges
-**Exists Filters**: Check if a field exists or is empty
-
+Fuzzy Searches
 </div>
+host_name:server01~1 (1 deviation away from server)
+
+<div class="filter-section">
+Proximity Searches
+</div>
+log_message:"server error"~1 (values will appear 1 word or less from each other)
+
+<div class="filter-section">
+Regular Expressions
+</div>
+Event_Type:/.*/ (Wrap in forward slashes)
 
 ## Common Filter Examples
 
