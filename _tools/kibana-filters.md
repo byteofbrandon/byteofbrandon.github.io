@@ -200,11 +200,6 @@ Example: <code>event_type:/ERROR|WARN/</code><br>
 ## Field Value Filtering
 
 <div class="code-block">
-<strong style="color: #00ffd5; font-weight: bold;"># Basic field filtering</strong><br>
-status:200<br>
-method:GET<br>
-user.name:"john.doe"<br>
-<br>
 <strong style="color: #00ffd5; font-weight: bold;"># Multiple values</strong><br>
 status:(200 OR 404 OR 500)<br>
 method:(GET OR POST)<br>
@@ -219,37 +214,7 @@ ip_address:192.168.1.*<br>
 user.name:john?<br>
 </div>
 
-<div class="tip-box">
 
-<h4><strong style="color: #ff4cf0; font-weight: bold;">Pro Tips</strong></h4>
-- Use quotes around values with spaces: <code>message:"server error"</code><br>
-- Combine multiple filters with AND/OR: <code>status:200 AND method:GET</code><br>
-- Use NOT to exclude: <code>NOT status:404</code><br>
-- Pin frequently used filters to save time<br>
 
-</div>
-
-## Advanced Query Techniques
-
-<h3><strong style="color: #00ffd5; font-weight: bold;">Boolean Logic</strong></h3>
-- <code>status:200 AND method:GET</code> - Both conditions must be true<br>
-- <code>status:(404 OR 500)</code> - Either condition can be true<br>
-- <code>NOT status:404</code> - Exclude specific values<br>
-- <code>status:200 OR (status:500 AND urgent:true)</code> - Complex combinations<br>
-
-<h3><strong style="color: #00ffd5; font-weight: bold;">Nested Field Queries</strong></h3>
-- <code>user.details.department:security</code><br>
-- <code>server.metrics.cpu_usage:>80</code><br>
-- <code>application.logs.level:ERROR</code><br>
-
-<h3><strong style="color: #00ffd5; font-weight: bold;">Performance Optimization</strong></h3>
-- Start with time-based filters first<br>
-- Use specific field names rather than <code>_all</code><br>
-- Combine related filters with AND<br>
-- Use index patterns that match your data structure<br>
-
----
-
-*Last updated: {{ page.last_updated }}*
 
 </div>
