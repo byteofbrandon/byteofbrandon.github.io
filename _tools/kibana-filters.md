@@ -84,28 +84,33 @@ hr {
 
 <div class="content-wrapper">
 
-## Advanced ELK Queries
+## Advanced ELK Queries<br />
 
-"Example" will match only Example
-example will match anything containing example
+"Example" will match only Example <br />
+example will match anything containing example<br />
 
-@timestamp<"yyyy-MM-ddTHH:mm:ssZ"
-@timestamp>yyyy-MM-dd
+@timestamp<"yyyy-MM-ddTHH:mm:ssZ"<br />
+@timestamp>yyyy-MM-dd<br />
 
-<div class="filter-section">
+
 Fuzzy Searches
+<div class="code-block">
+host_name:server01~1 
 </div>
-host_name:server01~1 (1 deviation away from server)
+(1 deviation away from server)
 
-<div class="filter-section">
+
 Proximity Searches
+<div class="code-block">
+log_message:"server error"~1 
 </div>
-log_message:"server error"~1 (values will appear 1 word or less from each other)
+(values will appear 1 word or less from each other)
 
-<div class="filter-section">
 Regular Expressions
+<div class="code-block">
+Event_Type:/.*/ 
 </div>
-Event_Type:/.*/ (Wrap in forward slashes)
+(Wrap in forward slashes)
 
 ## Common Filter Examples
 
