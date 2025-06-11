@@ -1,12 +1,9 @@
-# main links
 main:
-  - title: "Home"
-    url: /
-  - title: "Coding"
-    url: /coding/
-  - title: "Offensive"
-    url: /offensive/
-  - title: "Defensive"
-    url: /
-  - title: "About"
-    url: /sitemap/
+  - title: "CTFs"
+    url: /ctf/
+  - title: "Wireshark"
+    url: /wireshark/
+  - title: "Threat Hunting"
+    url: /threat-hunting/
+  - title: "Malware Analysis"
+    url: /malware-analysis/
