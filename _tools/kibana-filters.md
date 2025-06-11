@@ -20,24 +20,34 @@ toc_icon: "filter"
 ---
 
 <style>
-/* Base Typography */
-h1, h2, h3, h4 {
+/* Base Typography - Only target content area */
+.page__content h1, 
+.page__content h2, 
+.page__content h3, 
+.page__content h4,
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3,
+.content-wrapper h4 {
   color: #00ffd5 !important;
   font-family: 'Fira Code', monospace !important;
 }
 
-p {
+.page__content p,
+.content-wrapper p {
   color: #cccccc !important;
   font-family: 'Fira Code', monospace !important;
 }
 
-/* Links */
-a {
+/* Links - Only in content area */
+.page__content a,
+.content-wrapper a {
   color: #00ffd5 !important;
   text-decoration: underline !important;
 }
 
-a:hover {
+.page__content a:hover,
+.content-wrapper a:hover {
   color: #ff4cf0 !important;
 }
 
@@ -106,14 +116,18 @@ hr {
   margin-top: 0;
 }
 
-/* Text Styling */
-strong, b {
+/* Text Styling - Only in content area */
+.page__content strong, 
+.page__content b,
+.content-wrapper strong,
+.content-wrapper b {
   color: #00ffd5 !important;
   font-weight: bold !important;
 }
 
-/* Code inline */
-code {
+/* Code inline - Only in content */
+.page__content code,
+.content-wrapper code {
   background: rgba(0, 0, 0, 0.4) !important;
   color: #00ffd5 !important;
   padding: 0.2em 0.4em !important;
@@ -121,12 +135,16 @@ code {
   font-family: 'Fira Code', monospace !important;
 }
 
-/* Lists */
-ul, ol {
+/* Lists - Only in content */
+.page__content ul, 
+.page__content ol,
+.content-wrapper ul,
+.content-wrapper ol {
   color: #cccccc !important;
 }
 
-li {
+.page__content li,
+.content-wrapper li {
   margin-bottom: 0.5rem;
 }
 </style>
