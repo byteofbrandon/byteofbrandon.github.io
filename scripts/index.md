@@ -1,5 +1,5 @@
 ---
-layout: collection_index
+layout: home
 title: "Scripts"
 permalink: /scripts/
 ---
