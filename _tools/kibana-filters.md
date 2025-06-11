@@ -94,18 +94,12 @@ hr {
 
 <div class="content-wrapper">
 
-## What are Kibana Filters?
-
-Kibana filters are powerful tools that allow you to narrow down your data view by applying specific criteria to your search results. They help you focus on the data that matters most for your analysis.
-
 <div class="filter-section">
 
-### Types of Filters
-
-**Query String Filters**: Use Lucene query syntax for complex searches
-**Field Filters**: Filter by specific field values
-**Range Filters**: Filter by date ranges or numeric ranges
-**Exists Filters**: Check if a field exists or is empty
+Fuzzy Searches  
+Find results similar to query  
+Ex: host_name:server01~1  
+Will match results with one level of deviance (servor)
 
 </div>
 
@@ -194,7 +188,5 @@ Use the time picker in Kibana's interface for quick date range selection, or cre
 
 ---
 
-**Last Updated**: {{ page.last_updated }}
-**Tags**: {% for tag in page.tags %}#{{ tag }} {% endfor %}
 
 </div>
