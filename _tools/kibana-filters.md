@@ -90,16 +90,21 @@ hr {
   color: #ff4cf0;
   margin-top: 0;
 }
+/* Add bold styling */
+strong, b {
+  color: #00ffd5;
+  font-weight: bold;
+}
 </style>
 
 <div class="content-wrapper">
 
 <div class="filter-section">
 
-Fuzzy Searches<br>
-Find results similar to query<br>
-Ex: host_name:server01~1<br>
-Will match results with one level of deviance (servor)<br>
+**Fuzzy Searches**  
+Find results similar to query  
+Ex: host_name:server01~1  
+Will match results with one level of deviance (servor)  
 
 </div>
 
