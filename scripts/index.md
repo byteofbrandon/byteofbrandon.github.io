@@ -1,6 +1,7 @@
 ---
 layout: collection_index
 title: "Scripts"
+permalink: /scripts/
 ---
 
 # Scripts

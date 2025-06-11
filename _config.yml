@@ -327,7 +327,23 @@ defaults:
       css: "/assets/css/custom.css"
 
 collections:
-  offensive:
+  tools:
     output: true
-    permalink: /offensive/:name/
+    permalink: /tools/:title/
+  scripts:
+    output: true
+    permalink: /scripts/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: tools
+    values:
+      layout: collection
+  - scope:
+      path: ""
+      type: scripts
+    values:
+      layout: collection
+
 
