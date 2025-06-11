@@ -137,98 +137,98 @@ li {
 
 <div class="filter-section">
 
-**Fuzzy Searches**  
-Find results similar to your query  
-Example: `host_name:server01~1`  
-*Matches results with one character difference (like "servor01")*
+<strong style="color: #00ffd5; font-weight: bold;">Fuzzy Searches</strong><br>
+Find results similar to your query<br>
+Example: <code>host_name:server01~1</code><br>
+<em>Matches results with one character difference (like "servor01")</em>
 
 </div>
 
 <div class="filter-section-alt">
 
-**Proximity Searches**  
-Find keywords within a set distance of each other  
-Example: `log_message:"server error"~5`  
-*Matches "server" and "error" within 5 words of each other*
+<strong style="color: #00ffd5; font-weight: bold;">Proximity Searches</strong><br>
+Find keywords within a set distance of each other<br>
+Example: <code>log_message:"server error"~5</code><br>
+<em>Matches "server" and "error" within 5 words of each other</em>
 
 </div>
 
 <div class="filter-section">
 
-**Regular Expressions**  
-Use regex patterns for complex matching  
-Example: `event_type:/ERROR|WARN/`  
-*Matches logs containing either "ERROR" or "WARN"*
+<strong style="color: #00ffd5; font-weight: bold;">Regular Expressions</strong><br>
+Use regex patterns for complex matching<br>
+Example: <code>event_type:/ERROR|WARN/</code><br>
+<em>Matches logs containing either "ERROR" or "WARN"</em>
 
 </div>
 
 ## Date Range Examples
 
 <div class="code-block">
-# Common time ranges
-@timestamp:[now-24h TO now]           # Last 24 hours
-@timestamp:[now-7d TO now]            # Last 7 days
-@timestamp:[now-1M TO now]            # Last month
-
-# Specific date ranges
-@timestamp:[2025-06-01 TO 2025-06-10]
-@timestamp:[2025-06-01T00:00:00 TO 2025-06-01T23:59:59]
-
-# Date format patterns
-@timestamp:[yyyy-MM-dd TO yyyy-MM-dd]
-@timestamp:[yyyy-MM-ddTHH:mm:ss TO yyyy-MM-ddTHH:mm:ss]
+<strong style="color: #00ffd5; font-weight: bold;"># Common time ranges</strong><br>
+@timestamp:[now-24h TO now]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #cccccc;"># Last 24 hours</strong><br>
+@timestamp:[now-7d TO now]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #cccccc;"># Last 7 days</strong><br>
+@timestamp:[now-1M TO now]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #cccccc;"># Last month</strong><br>
+<br>
+<strong style="color: #00ffd5; font-weight: bold;"># Specific date ranges</strong><br>
+@timestamp:[2025-06-01 TO 2025-06-10]<br>
+@timestamp:[2025-06-01T00:00:00 TO 2025-06-01T23:59:59]<br>
+<br>
+<strong style="color: #00ffd5; font-weight: bold;"># Date format patterns</strong><br>
+@timestamp:[yyyy-MM-dd TO yyyy-MM-dd]<br>
+@timestamp:[yyyy-MM-ddTHH:mm:ss TO yyyy-MM-ddTHH:mm:ss]<br>
 </div>
 
 ## Field Value Filtering
 
 <div class="code-block">
-# Basic field filtering
-status:200
-method:GET
-user.name:"john.doe"
-
-# Multiple values
-status:(200 OR 404 OR 500)
-method:(GET OR POST)
-
-# Range queries
-response_time:[100 TO 500]
-bytes_sent:>1000
-
-# Wildcard searches
-host_name:web*
-ip_address:192.168.1.*
-user.name:john?
+<strong style="color: #00ffd5; font-weight: bold;"># Basic field filtering</strong><br>
+status:200<br>
+method:GET<br>
+user.name:"john.doe"<br>
+<br>
+<strong style="color: #00ffd5; font-weight: bold;"># Multiple values</strong><br>
+status:(200 OR 404 OR 500)<br>
+method:(GET OR POST)<br>
+<br>
+<strong style="color: #00ffd5; font-weight: bold;"># Range queries</strong><br>
+response_time:[100 TO 500]<br>
+bytes_sent:>1000<br>
+<br>
+<strong style="color: #00ffd5; font-weight: bold;"># Wildcard searches</strong><br>
+host_name:web*<br>
+ip_address:192.168.1.*<br>
+user.name:john?<br>
 </div>
 
 <div class="tip-box">
 
-#### Pro Tips
-- Use quotes around values with spaces: `message:"server error"`
-- Combine multiple filters with AND/OR: `status:200 AND method:GET`
-- Use NOT to exclude: `NOT status:404`
-- Pin frequently used filters to save time
+<h4><strong style="color: #ff4cf0; font-weight: bold;">Pro Tips</strong></h4>
+- Use quotes around values with spaces: <code>message:"server error"</code><br>
+- Combine multiple filters with AND/OR: <code>status:200 AND method:GET</code><br>
+- Use NOT to exclude: <code>NOT status:404</code><br>
+- Pin frequently used filters to save time<br>
 
 </div>
 
 ## Advanced Query Techniques
 
-### Boolean Logic
-- `status:200 AND method:GET` - Both conditions must be true
-- `status:(404 OR 500)` - Either condition can be true  
-- `NOT status:404` - Exclude specific values
-- `status:200 OR (status:500 AND urgent:true)` - Complex combinations
+<h3><strong style="color: #00ffd5; font-weight: bold;">Boolean Logic</strong></h3>
+- <code>status:200 AND method:GET</code> - Both conditions must be true<br>
+- <code>status:(404 OR 500)</code> - Either condition can be true<br>
+- <code>NOT status:404</code> - Exclude specific values<br>
+- <code>status:200 OR (status:500 AND urgent:true)</code> - Complex combinations<br>
 
-### Nested Field Queries
-- `user.details.department:security`
-- `server.metrics.cpu_usage:>80`
-- `application.logs.level:ERROR`
+<h3><strong style="color: #00ffd5; font-weight: bold;">Nested Field Queries</strong></h3>
+- <code>user.details.department:security</code><br>
+- <code>server.metrics.cpu_usage:>80</code><br>
+- <code>application.logs.level:ERROR</code><br>
 
-### Performance Optimization
-- Start with time-based filters first
-- Use specific field names rather than `_all`
-- Combine related filters with AND
-- Use index patterns that match your data structure
+<h3><strong style="color: #00ffd5; font-weight: bold;">Performance Optimization</strong></h3>
+- Start with time-based filters first<br>
+- Use specific field names rather than <code>_all</code><br>
+- Combine related filters with AND<br>
+- Use index patterns that match your data structure<br>
 
 ---
 
