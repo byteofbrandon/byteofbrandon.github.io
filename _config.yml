@@ -339,11 +339,9 @@ defaults:
       path: ""
       type: tools
     values:
-      layout: collection
+      layout: page_custom
   - scope:
       path: ""
       type: scripts
     values:
-      layout: collection
-
-
+      layout: page_custom
