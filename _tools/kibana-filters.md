@@ -50,6 +50,16 @@ hr {
   padding: 2rem;
 }
 
+.archive {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.page__content {
+  width: 100% !important;
+  max-width: none !important;
+}
+
 .filter-section {
   background: rgba(0, 255, 213, 0.05);
   border-left: 4px solid #00ffd5;
