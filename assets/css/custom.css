@@ -55,3 +55,11 @@ body::before {
 .page__hero--overlay {
   min-height: 800px !important;
 }
+/* Custom Kibana filters styling */
+.page__content strong, 
+.page__content b,
+.filter-section strong,
+.filter-section b {
+  color: #00ffd5 !important;
+  font-weight: bold !important;
+}

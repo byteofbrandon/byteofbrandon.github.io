@@ -1,6 +1,7 @@
 ---
 layout: archive
 author_profile: true
+custom_css: /assets/css/custom_css
 header:
   overlay_color: "#000"
   overlay_filter: "0.4"
