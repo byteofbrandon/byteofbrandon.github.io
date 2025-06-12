@@ -11,17 +11,10 @@ header:
       <h1 style="margin-bottom: 0.3rem; color: #00ffd5; font-family: 'Fira Code', monospace;">Ransomware Detector</h1>
       <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Python script for real-time malware detection and monitoring</p>
     </div>
-title: "Ransomware Detector"
-description: "Python script that monitors file system activity to detect potential ransomware behavior"
+title: "Ransomware Example"
+description: "Python script that illustrates how ransomware is performed"
 github_url: "https://github.com/yourusername/cybersec-scripts/blob/main/ransomware_detector.py"
 language: "Python"
-tags: ["malware-detection", "monitoring", "incident-response", "defense"]
-date: 2025-06-11
-author: "Your Name"
-last_updated: 2025-06-11
-toc: true
-toc_label: "Detection Guide"
-toc_icon: "shield-alt"
 ---
 
 <style>
@@ -172,9 +165,10 @@ hr {
 
 <div class="content-wrapper">
 
-## Overview
+## Overview<br>
 
-This script monitors file system activity in real-time to detect suspicious behavior patterns commonly associated with ransomware attacks, such as rapid file encryption, extension changes, and suspicious file access patterns.
+This script encrypts a user's directory on linux and provides the encryption key to decrypt the files.<br>
+This is for educational purposes only<br>
 
 ## Features
 
@@ -183,101 +177,5 @@ This script monitors file system activity in real-time to detect suspicious beha
 **Real-time file system monitoring** - Continuously watches for suspicious file operations<br>
 **Behavioral analysis** - Analyzes patterns of file operations to identify threats<br>
 **Configurable detection thresholds** - Customize sensitivity based on your environment<br>
-
-</div>
-
-<div class="feature-section-alt">
-
-**Alert system with email notifications** - Immediate alerts when threats are detected<br>
-**Logging and reporting capabilities** - Comprehensive audit trail and incident reports<br>
-**Whitelist support** - Exclude legitimate processes from monitoring<br>
-
-</div>
-
-## Detection Methods
-
-<div class="code-block">
-<strong style="color: #00ffd5;">File Extension Analysis</strong>    - Monitors for mass file extension changes<br>
-<strong style="color: #00ffd5;">Entropy Detection</strong>         - Identifies files with high entropy (encrypted content)<br>
-<strong style="color: #00ffd5;">Access Pattern Analysis</strong>   - Detects unusual file access patterns<br>
-<strong style="color: #00ffd5;">Process Monitoring</strong>        - Tracks suspicious process behavior<br>
-<strong style="color: #00ffd5;">Network Activity</strong>          - Monitors for C2 communications<br>
-</div>
-
-## Usage
-
-<div class="code-block">
-<strong style="color: #00ffd5;"># Basic monitoring</strong><br>
-python ransomware_detector.py --monitor /home/user/Documents<br>
-<br>
-<strong style="color: #00ffd5;"># With custom configuration</strong><br>
-python ransomware_detector.py --config detector_config.json --verbose<br>
-<br>
-<strong style="color: #00ffd5;"># Monitor multiple directories</strong><br>
-python ransomware_detector.py --monitor /home/user --monitor /var/www --threshold 50<br>
-</div>
-
-## Configuration Example
-
-<div class="code-block">
-{<br>
-&nbsp;&nbsp;"monitor_paths": ["/home", "/var/www"],<br>
-&nbsp;&nbsp;"alert_threshold": 25,<br>
-&nbsp;&nbsp;"email_alerts": true,<br>
-&nbsp;&nbsp;"smtp_server": "smtp.company.com",<br>
-&nbsp;&nbsp;"whitelist_processes": ["backup.exe", "antivirus.exe"],<br>
-&nbsp;&nbsp;"log_file": "/var/log/ransomware_detector.log"<br>
-}<br>
-</div>
-
-## GitHub Repository
-
-View the full source code and contribute: [{{ page.github_url }}]({{ page.github_url }})
-
-## Installation
-
-<div class="code-block">
-git clone https://github.com/yourusername/cybersec-scripts.git<br>
-cd cybersec-scripts<br>
-pip install -r requirements.txt<br>
-sudo python ransomware_detector.py --install-service<br>
-</div>
-
-## Requirements
-
-<div class="feature-section">
-
-**Python 3.7+** - Core runtime environment<br>
-**watchdog library** - File system monitoring<br>
-**psutil** - Process and system monitoring<br>
-**configparser** - Configuration management<br>
-**smtplib** - Email alert functionality<br>
-
-</div>
-
-## Alerts and Actions
-
-<div class="tip-box">
-<h4>When suspicious activity is detected, the script can:</h4>
-
-Send email alerts to security team<br>
-Log detailed information about the suspicious activity<br>
-Optionally isolate affected systems (with proper configuration)<br>
-Generate incident reports<br>
-</div>
-
-## Integration
-
-<div class="code-block">
-<strong style="color: #00ffd5;">SIEM Integration</strong><br>
-- Splunk<br>
-- ELK stack<br>
-- IBM QRadar<br>
-<br>
-<strong style="color: #00ffd5;">Platform Integration</strong><br>
-- Security orchestration platforms<br>
-- Incident response workflows<br>
-- Enterprise monitoring solutions<br>
-</div>
 
 </div>
