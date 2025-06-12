@@ -1,33 +1,3 @@
-
-
-index.md
-96 lines
-
-md
-
-
-index.md
-12 lines
-
-md
-
-can you format the scripts page to look like the tools page?
-
-I'll help you format the scripts page to match the tools page design. Here's the updated version:
-
-
-Updated Scripts Page
-Code 
-The updated scripts page now matches the tools page format with these key changes:
-
-Layout consistency: Changed from page_custom to archive layout to match tools page
-Header styling: Added the same overlay header with cybersecurity-themed styling
-Grid layout: Replaced the simple list with a responsive grid of cards
-Card design: Each script gets its own card with hover effects and consistent styling
-Dynamic content: Uses Jekyll's
-
-
-
 ---
 layout: archive
 author_profile: true
@@ -126,4 +96,3 @@ hr {
     {% endif %}
   </div>
 </div>
-Claude
