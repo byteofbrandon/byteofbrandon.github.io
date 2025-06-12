@@ -12,13 +12,16 @@ header:
       <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Real-time monitoring and threat detection</p>
     </div>
 title: "Ransomware Detector"
+description: "Python script that monitors file system activity to detect potential ransomware behavior"
+github_url: "https://github.com/yourusername/cybersec-scripts/blob/main/ransomware_detector.py"
+language: "Python"
 tags: [python, malware-detection, monitoring, incident-response, defense]
+date: 2025-06-11
+author: "Your Name"
 last_updated: 2025-06-11
 toc: true
 toc_label: "Script Guide"
 toc_icon: "shield-alt"
-github_url: "https://github.com/yourusername/cybersec-scripts/blob/main/ransomware_detector.py"
-language: "Python"
 ---
 
 <style>
@@ -164,109 +167,67 @@ This script monitors file system activity in real-time to detect suspicious beha
 - Logging and reporting capabilities
 - Whitelist support for legitimate processes
 
-## Usage
-Basic monitoring of a single directory:
-```bash
-python ransomware_detector.py --monitor /home/user/Documents
-```
-
-Monitor multiple directories with custom thresholds:
-```bash
-python ransomware_detector.py --monitor /home --monitor /var/www --threshold 50
-```
-
-Run with custom configuration file:
-```bash
-python ransomware_detector.py --config detector_config.json --verbose
-```
-
-## Command Examples
-
-<div class="code-block">
-<strong style="color: #00ffd5; font-weight: bold;"># Basic usage patterns</strong><br>
-python ransomware_detector.py --monitor /home/user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #cccccc;"># Single directory</strong><br>
-python ransomware_detector.py --monitor /home --threshold 25&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #cccccc;"># Custom threshold</strong><br>
-python ransomware_detector.py --config config.json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #cccccc;"># Config file</strong><br>
-<br>
-<strong style="color: #00ffd5; font-weight: bold;"># Service installation</strong><br>
-sudo python ransomware_detector.py --install-service<br>
-sudo systemctl start ransomware-detector<br>
-sudo systemctl enable ransomware-detector<br>
-<br>
-<strong style="color: #00ffd5; font-weight: bold;"># Debugging and testing</strong><br>
-python ransomware_detector.py --test-mode --verbose<br>
-python ransomware_detector.py --dry-run --log-level debug<br>
-</div>
-
-## Configuration File Format
-
-<div class="code-block">
-<strong style="color: #00ffd5; font-weight: bold;"># detector_config.json example</strong><br>
-{<br>
-&nbsp;&nbsp;"monitor_paths": ["/home", "/var/www", "/opt"],<br>
-&nbsp;&nbsp;"alert_threshold": 25,<br>
-&nbsp;&nbsp;"email_alerts": true,<br>
-&nbsp;&nbsp;"smtp_server": "smtp.company.com",<br>
-&nbsp;&nbsp;"smtp_port": 587,<br>
-&nbsp;&nbsp;"email_from": "security@company.com",<br>
-&nbsp;&nbsp;"email_to": ["admin@company.com", "security-team@company.com"],<br>
-&nbsp;&nbsp;"whitelist_processes": ["backup.exe", "antivirus.exe"],<br>
-&nbsp;&nbsp;"whitelist_extensions": [".tmp", ".bak"],<br>
-&nbsp;&nbsp;"log_file": "/var/log/ransomware_detector.log",<br>
-&nbsp;&nbsp;"log_level": "INFO"<br>
-}
-</div>
-
 ## Detection Methods
+- **File Extension Analysis**: Monitors for mass file extension changes
+- **Entropy Detection**: Identifies files with high entropy (encrypted content)
+- **Access Pattern Analysis**: Detects unusual file access patterns
+- **Process Monitoring**: Tracks suspicious process behavior
+- **Network Activity**: Monitors for C2 communications
 
-The script uses multiple detection techniques to identify potential ransomware activity:
+## Usage
+```bash
+# Basic monitoring
+python ransomware_detector.py --monitor /home/user/Documents
 
-**File Extension Analysis**: Monitors for mass file extension changes to encrypted formats. Detects patterns like `.txt` → `.encrypted` or `.doc` → `.locked`.
+# With custom configuration
+python ransomware_detector.py --config detector_config.json --verbose
 
-**Entropy Detection**: Identifies files with high entropy indicating encryption. Analyzes file content randomness to detect encrypted data.
+# Monitor multiple directories
+python ransomware_detector.py --monitor /home/user --monitor /var/www --threshold 50
+```
 
-**Access Pattern Analysis**: Detects unusual file access patterns and rapid modifications. Monitors for suspicious bulk file operations.
-
-**Process Monitoring**: Tracks suspicious process behavior and system calls. Identifies processes performing encryption-like operations.
-
-**Network Activity**: Monitors for potential command and control communications.
-
-## Installation & Requirements
-
-<div class="code-block">
-<strong style="color: #00ffd5; font-weight: bold;"># Clone and install</strong><br>
-git clone https://github.com/yourusername/cybersec-scripts.git<br>
-cd cybersec-scripts<br>
-pip install -r requirements.txt<br>
-<br>
-<strong style="color: #00ffd5; font-weight: bold;"># Required packages</strong><br>
-pip install watchdog psutil configparser smtplib<br>
-<br>
-<strong style="color: #00ffd5; font-weight: bold;"># System requirements</strong><br>
-Python 3.7+<br>
-Linux/Windows/macOS support<br>
-Root/Administrator privileges (for system monitoring)<br>
-</div>
-
-<div class="tip-box">
-<h4>💡 Pro Tip</h4>
-Run the script in test mode first to calibrate your detection thresholds and avoid false positives from legitimate backup or sync operations.
-</div>
-
-## Alert Actions
-
-When suspicious activity is detected, the script can perform various response actions:
-
-- Send email alerts to security team
-- Log detailed information about suspicious activity  
-- Generate incident reports with forensic data
-- Optionally isolate affected systems (with proper configuration)
-- Integration with SIEM systems and security orchestration platforms
+## Configuration Example
+```json
+{
+  "monitor_paths": ["/home", "/var/www"],
+  "alert_threshold": 25,
+  "email_alerts": true,
+  "smtp_server": "smtp.company.com",
+  "whitelist_processes": ["backup.exe", "antivirus.exe"],
+  "log_file": "/var/log/ransomware_detector.log"
+}
+```
 
 ## GitHub Repository
-
 View the full source code and contribute: [{{ page.github_url }}]({{ page.github_url }})
 
-The repository includes additional tools, documentation, and example configurations for enterprise deployment.
+## Installation
+```bash
+git clone https://github.com/yourusername/cybersec-scripts.git
+cd cybersec-scripts
+pip install -r requirements.txt
+sudo python ransomware_detector.py --install-service
+```
+
+## Requirements
+- Python 3.7+
+- watchdog library
+- psutil
+- configparser
+- smtplib (for email alerts)
+
+## Alerts and Actions
+When suspicious activity is detected, the script can:
+- Send email alerts to security team
+- Log detailed information about the suspicious activity
+- Optionally isolate affected systems (with proper configuration)
+- Generate incident reports
+
+## Integration
+This script can be integrated with:
+- SIEM systems (Splunk, ELK stack)
+- Security orchestration platforms
+- Incident response workflows
+- Enterprise monitoring solutions
 
 </div>
