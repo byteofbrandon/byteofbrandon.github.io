@@ -8,8 +8,8 @@ header:
   height: 600px
   caption: >
     <div style="text-align: left; padding-left: 2rem; max-width: 600px;">
-      <h1 style="margin-bottom: 0.3rem; color: #00ffd5; font-family: 'Fira Code', monospace;">Ransomware Detector</h1>
-      <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Python script for real-time malware detection and monitoring</p>
+      <h1 style="margin-bottom: 0.3rem; color: #00ffd5; font-family: 'Fira Code', monospace;">Ransomware Example</h1>
+      <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Python script for demonstrate the functions of ransomware</p>
     </div>
 title: "Ransomware Example"
 description: "Python script that illustrates how ransomware is performed"

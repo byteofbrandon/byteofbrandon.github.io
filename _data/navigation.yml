@@ -5,3 +5,5 @@ main:
     url: "/tools/"
   - title: "Scripts"
     url: "/scripts/"
+  - title: "Blog"
+    url: "/blog"  
