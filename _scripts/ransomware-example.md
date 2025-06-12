@@ -153,34 +153,32 @@ hr {
 
 <div class="content-wrapper">
 
-## Quick Start Usage
+## Overview
+This script monitors file system activity in real-time to detect suspicious behavior patterns commonly associated with ransomware attacks, such as rapid file encryption, extension changes, and suspicious file access patterns.
 
-<div class="filter-section">
+## Features
+- Real-time file system monitoring
+- Behavioral analysis of file operations
+- Configurable detection thresholds
+- Alert system with email notifications
+- Logging and reporting capabilities
+- Whitelist support for legitimate processes
 
-<strong style="color: #00ffd5; font-weight: bold;">Basic Monitoring</strong><br>
-Monitor a single directory for suspicious activity<br>
-Example: <code>python ransomware_detector.py --monitor /home/user/Documents</code><br>
-<em>Starts real-time monitoring with default settings</em>
+## Usage
+Basic monitoring of a single directory:
+```bash
+python ransomware_detector.py --monitor /home/user/Documents
+```
 
-</div>
+Monitor multiple directories with custom thresholds:
+```bash
+python ransomware_detector.py --monitor /home --monitor /var/www --threshold 50
+```
 
-<div class="filter-section-alt">
-
-<strong style="color: #00ffd5; font-weight: bold;">Advanced Monitoring</strong><br>
-Monitor multiple directories with custom thresholds<br>
-Example: <code>python ransomware_detector.py --monitor /home --monitor /var/www --threshold 50</code><br>
-<em>Monitors multiple paths with custom alert threshold</em>
-
-</div>
-
-<div class="filter-section">
-
-<strong style="color: #00ffd5; font-weight: bold;">Configuration Mode</strong><br>
-Run with custom configuration file<br>
-Example: <code>python ransomware_detector.py --config detector_config.json --verbose</code><br>
-<em>Uses specified config file with detailed output</em>
-
-</div>
+Run with custom configuration file:
+```bash
+python ransomware_detector.py --config detector_config.json --verbose
+```
 
 ## Command Examples
 
@@ -221,39 +219,17 @@ python ransomware_detector.py --dry-run --log-level debug<br>
 
 ## Detection Methods
 
-This script monitors file system activity to detect suspicious behavior patterns commonly associated with ransomware attacks.
+The script uses multiple detection techniques to identify potential ransomware activity:
 
-<div class="filter-section">
+**File Extension Analysis**: Monitors for mass file extension changes to encrypted formats. Detects patterns like `.txt` → `.encrypted` or `.doc` → `.locked`.
 
-<strong style="color: #00ffd5; font-weight: bold;">File Extension Analysis</strong><br>
-Monitors for mass file extension changes to encrypted formats<br>
-<em>Detects patterns like .txt → .encrypted, .doc → .locked</em>
+**Entropy Detection**: Identifies files with high entropy indicating encryption. Analyzes file content randomness to detect encrypted data.
 
-</div>
+**Access Pattern Analysis**: Detects unusual file access patterns and rapid modifications. Monitors for suspicious bulk file operations.
 
-<div class="filter-section-alt">
+**Process Monitoring**: Tracks suspicious process behavior and system calls. Identifies processes performing encryption-like operations.
 
-<strong style="color: #00ffd5; font-weight: bold;">Entropy Detection</strong><br>
-Identifies files with high entropy indicating encryption<br>
-<em>Analyzes file content randomness to detect encrypted data</em>
-
-</div>
-
-<div class="filter-section">
-
-<strong style="color: #00ffd5; font-weight: bold;">Access Pattern Analysis</strong><br>
-Detects unusual file access patterns and rapid modifications<br>
-<em>Monitors for suspicious bulk file operations</em>
-
-</div>
-
-<div class="filter-section-alt">
-
-<strong style="color: #00ffd5; font-weight: bold;">Process Monitoring</strong><br>
-Tracks suspicious process behavior and system calls<br>
-<em>Identifies processes performing encryption-like operations</em>
-
-</div>
+**Network Activity**: Monitors for potential command and control communications.
 
 ## Installation & Requirements
 
