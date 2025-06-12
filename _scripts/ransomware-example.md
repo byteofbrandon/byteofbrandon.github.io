@@ -161,22 +161,17 @@ hr {
   color: #cccccc !important;
   border: none !important;
 }
+/* Simple GitHub button */
 .github-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #00ffd5, #00d7ff);
-  color: #000 !important;
-  padding: 12px 24px;
-  border-radius: 8px;
+  background: #333;
+  color: #00ffd5 !important;
+  padding: 8px 16px;
+  border-radius: 4px;
   text-decoration: none !important;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  margin: 1rem 0;
 }
 
 .github-button:hover {
-  background: linear-gradient(135deg, #ff4cf0, #00ffd5);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 255, 213, 0.3);
+  background: #444;
 }
 </style>
 
