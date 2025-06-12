@@ -179,6 +179,6 @@ hr {
 
 <strong style="color: #00ffd5; font-weight: bold;">Simple Ransomware Example</strong><br>
 This script encrypts a user's directory on linux and provides the encryption key to decrypt the files.<br>
-For educational purposes only<br>
+For educational purposes only<br><br>
 
 <a href="https://github.com/byteofbrandon/CyberTools/blob/main/Ransomware/ransom_example.py" class="github-button">Simple Ransomware Example</a>
