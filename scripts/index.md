@@ -53,7 +53,7 @@ hr {
 .script-card {
   background: rgba(0, 255, 213, 0.05);
   border: 1px solid #00ffd5;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 1.5rem;
   transition: all 0.3s ease;
 }
