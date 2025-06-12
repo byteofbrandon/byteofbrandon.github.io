@@ -151,7 +151,7 @@ hr {
 
 <div class="content-wrapper">
 
-## Quick Reference Filters
+Quick Reference Filters
 
 <div class="filter-section">
 
@@ -180,7 +180,7 @@ Example: <code>event_type:/ERROR|WARN/</code><br>
 
 </div>
 
-## Date Range Examples
+Date Range Examples
 
 <div class="code-block">
 <strong style="color: #00ffd5; font-weight: bold;"># Common time ranges</strong><br>
@@ -197,7 +197,7 @@ Example: <code>event_type:/ERROR|WARN/</code><br>
 @timestamp:[yyyy-MM-ddTHH:mm:ss TO yyyy-MM-ddTHH:mm:ss]<br>
 </div>
 
-## Field Value Filtering
+Field Value Filtering
 
 <div class="code-block">
 <strong style="color: #00ffd5; font-weight: bold;"># Multiple values</strong><br>
@@ -212,6 +212,17 @@ bytes_sent:>1000<br>
 host_name:web*<br>
 ip_address:192.168.1.*<br>
 user.name:john?<br>
+</div>
+
+Useful Fields
+
+<div class="code-block">
+rule.name<br>
+http.url<br>
+dns.query.name<br>
+dns.answers.name<br>
+http.method<br>
+<br>
 </div>
 
 
