@@ -218,7 +218,7 @@ Useful Fields
 
 <div class="code-block">
 rule.name<br>
-http.url<br>
+http.uri<br>
 dns.query.name<br>
 dns.answers.name<br>
 http.method<br>
