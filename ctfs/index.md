@@ -104,6 +104,19 @@ hr {
 
 <div class="archive">
   <div class="ctf-grid">
+    <!-- Network Security Challenge Card -->
+    <div class="ctf-card">
+      <h3 class="ctf-title">
+        <a href="/ctfs/net_sec_challenge/">Network Security Challenge</a>
+      </h3>
+      <p class="ctf-description">Comprehensive network security CTF challenge involving packet analysis, vulnerability assessment, and network forensics.</p>
+      <div class="ctf-meta">
+        <span class="difficulty-medium">MEDIUM</span>
+        <span class="category-badge">Network Security</span>
+        <span>Networking</span>
+      </div>
+    </div>
+    
     {% for item in site.ctfs %}
     <div class="ctf-card">
       <h3 class="ctf-title">
@@ -132,7 +145,7 @@ hr {
       <h3 class="ctf-title">
         <a href="#" onclick="return false;" style="color: #666;">Coming Soon</a>
       </h3>
-      <p class="ctf-description">CTF walkthroughs will be added here as challenges are completed.</p>
+      <p class="ctf-description">Additional CTF walkthroughs will be added here as challenges are completed.</p>
       <div class="ctf-meta">
         <span class="category-badge">Various Categories</span>
       </div>
