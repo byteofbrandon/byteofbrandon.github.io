@@ -8,4 +8,4 @@ main:
   - title: "OSINT"
     url: "/osint"  
   - title: "CTFs"
-    url: "/_ctfs"
+    url: "/ctfs"
