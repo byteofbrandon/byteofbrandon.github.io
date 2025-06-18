@@ -182,7 +182,7 @@ hr {
 
 <div class="content-wrapper">
 
-## Challenge Overview
+Challenge Overview
 
 <div class="target-info">
 <h4>Target Information</h4>
@@ -195,7 +195,7 @@ This CTF focuses on fundamental network reconnaissance techniques including port
 
 ---
 
-## Question 1: Highest Open Port Below 10,000
+Question 1: Highest Open Port Below 10,000
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the highest port number being open less than 10,000?
@@ -221,7 +221,7 @@ Answer: 8080
 
 ---
 
-## Question 2: Open Port Above 10,000
+Question 2: Open Port Above 10,000
 
 <div class="challenge-section">
 <strong>Question:</strong> There is an open port outside the common 1000 ports; it is above 10,000. What is it?
@@ -247,7 +247,7 @@ Answer: 10021
 
 ---
 
-## Question 3: Total TCP Ports Open
+Question 3: Total TCP Ports Open
 
 <div class="challenge-section">
 <strong>Question:</strong> How many TCP ports are open?
@@ -277,7 +277,7 @@ Answer: 6
 
 ---
 
-## Question 4: HTTP Server Header Flag
+Question 4: HTTP Server Header Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the flag hidden in the HTTP server header?
@@ -309,7 +309,7 @@ Flag: THM{web_server_25352}
 
 ---
 
-## Question 5: SSH Server Header Flag
+Question 5: SSH Server Header Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the flag hidden in the SSH server header?
@@ -335,7 +335,7 @@ Flag: THM{946219583339}
 
 ---
 
-## Question 6: FTP Server Version
+Question 6: FTP Server Version
 
 <div class="challenge-section">
 <strong>Question:</strong> We have an FTP server listening on a nonstandard port. What is the version of the FTP server?
@@ -361,7 +361,7 @@ Answer: vsftpd 3.0.5
 
 ---
 
-## Question 7: FTP Account Flag
+Question 7: FTP Account Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> We learned two usernames using social engineering: eddie and quinn. What is the flag hidden in one of these two account files and accessible via FTP?
@@ -411,7 +411,7 @@ Flag: THM{321452667098}
 
 ---
 
-## Question 8: Web Challenge Flag
+Question 8: Web Challenge Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> Browsing to http://10.10.28.88:8080 displays a small challenge that will give you a flag once you solve it. What is the flag?
@@ -437,30 +437,5 @@ Flag: THM{f7443f99}
 
 ---
 
-## Summary
-
-This CTF demonstrated fundamental network reconnaissance techniques:
-
-- **Port Scanning**: Using nmap with various switches and ranges
-- **Service Enumeration**: Version detection and banner grabbing
-- **Protocol Analysis**: Manual HTTP and SSH header inspection
-- **Credential Attacks**: Brute forcing with hydra
-- **Scan Techniques**: Different nmap scan types for specific purposes
-
-### Key Tools Used:
-- `nmap` - Network port scanner and service detector
-- `telnet` - Manual protocol interaction
-- `hydra` - Password brute forcing tool
-- `ftp` - File Transfer Protocol client
-
-### Flags Collected:
-1. Port 8080 (highest port < 10000)
-2. Port 10021 (port > 10000)  
-3. 6 total TCP ports
-4. THM{web_server_25352} (HTTP header)
-5. THM{946219583339} (SSH header)
-6. vsftpd 3.0.5 (FTP version)
-7. THM{321452667098} (FTP account)
-8. THM{f7443f99} (web challenge)
 
 </div>
