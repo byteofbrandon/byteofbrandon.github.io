@@ -182,7 +182,7 @@ hr {
 
 <div class="content-wrapper">
 
-Challenge Overview
+## Challenge Overview
 
 <div class="target-info">
 <h4>Target Information</h4>
@@ -193,6 +193,9 @@ Challenge Overview
 
 This CTF focuses on fundamental network reconnaissance techniques including port scanning, service enumeration, and basic credential attacks. We'll systematically explore the target to answer each question.
 
+---
+
+## Question 1: Highest Port Below 10,000
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the highest port number being open less than 10,000?
@@ -216,6 +219,9 @@ nmap 10.10.28.88 -p -10000
 Answer: 8080
 </div>
 
+---
+
+## Question 2: Port Above 10,000
 
 <div class="challenge-section">
 <strong>Question:</strong> There is an open port outside the common 1000 ports; it is above 10,000. What is it?
@@ -239,6 +245,9 @@ nmap 10.10.28.88 -n -T4 -p 10000-
 Answer: 10021
 </div>
 
+---
+
+## Question 3: Total TCP Ports
 
 <div class="challenge-section">
 <strong>Question:</strong> How many TCP ports are open?
@@ -266,6 +275,9 @@ Total: 6 open TCP ports
 Answer: 6
 </div>
 
+---
+
+## Question 4: HTTP Server Header Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the flag hidden in the HTTP server header?
@@ -295,6 +307,9 @@ Host: hacker<br>
 Flag: THM{web_server_25352}
 </div>
 
+---
+
+## Question 5: SSH Server Header Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the flag hidden in the SSH server header?
@@ -318,6 +333,9 @@ telnet 10.10.28.88 22
 Flag: THM{946219583339}
 </div>
 
+---
+
+## Question 6: FTP Server Version
 
 <div class="challenge-section">
 <strong>Question:</strong> We have an FTP server listening on a nonstandard port. What is the version of the FTP server?
@@ -341,6 +359,9 @@ nmap 10.10.28.88 -sV -p 10021
 Answer: vsftpd 3.0.5
 </div>
 
+---
+
+## Question 7: FTP Account Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> We learned two usernames using social engineering: eddie and quinn. What is the flag hidden in one of these two account files and accessible via FTP?
@@ -376,6 +397,34 @@ exit<br>
 cat ftp_flag.txt
 </div>
 
+<div class="method-box">
+<h4>Alternative Method: Using Telnet for FTP</h4>
+To strictly use telnet for FTP access, you'll need two terminals:
+
+<div class="command-block">
+<strong># Terminal 1: Connect to FTP control channel</strong><br>
+telnet 10.10.28.88 10021<br>
+user quinn<br>
+pass andrea<br>
+<br>
+<strong># Enter passive mode</strong><br>
+pasv<br>
+<strong># Note the IP and port returned, e.g., (10,10,28,88,120,249)</strong><br>
+<strong># Convert to port: (120 * 256) + 249 = 30969</strong><br>
+<br>
+<strong># Terminal 2: Connect to data channel</strong><br>
+telnet 10.10.28.88 30969<br>
+<br>
+<strong># Back to Terminal 1: List files</strong><br>
+list<br>
+<strong># Results appear in Terminal 2</strong><br>
+<br>
+<strong># Download file (may need new pasv connection)</strong><br>
+retr ftp_flag.txt<br>
+<strong># File contents appear in Terminal 2</strong>
+</div>
+</div>
+
 <div class="answer-section">
 <strong>Analysis:</strong> After successfully brute forcing both accounts, we find that quinn's account contains the flag file. The credentials are:
 <ul>
@@ -388,6 +437,9 @@ cat ftp_flag.txt
 Flag: THM{321452667098}
 </div>
 
+---
+
+## Question 8: Web Challenge Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> Browsing to http://10.10.28.88:8080 displays a small challenge that will give you a flag once you solve it. What is the flag?
@@ -412,6 +464,5 @@ Flag: THM{f7443f99}
 </div>
 
 ---
-
 
 </div>
