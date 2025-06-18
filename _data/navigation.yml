@@ -7,5 +7,5 @@ main:
     url: "/scripts/"
   - title: "OSINT"
     url: "/osint"  
-  - title: "/CTFs/"
+  - title: "CTFs"
     url: "/ctfs"
