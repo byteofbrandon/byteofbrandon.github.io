@@ -333,6 +333,9 @@ collections:
   scripts:
     output: true
     permalink: /scripts/:title/
+  ctf:
+    output: true
+    permalink: /:collection/:name/
 
 defaults:
   - scope:
