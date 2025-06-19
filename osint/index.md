@@ -171,8 +171,8 @@ hr {
 
 body .osint-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-  gap: 1.5rem !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2rem !important;
   margin-top: 2rem !important;
   max-width: 1200px !important;
   width: 100% !important;
@@ -222,15 +222,10 @@ body .osint-card {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) {
   body .osint-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-@media (min-width: 1025px) {
-  body .osint-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
   }
 }
 </style>
