@@ -76,21 +76,14 @@ hr {
 
 <div class="archive">
   <div class="tools-grid">
+    {% for item in site.tools %}
     <div class="tool-card">
       <h3 class="tool-title">
-        <a href="{{ '/tools/kibana-filters' | relative_url }}">Kibana Filters Overview</a>
+        <a href="{{ item.url }}">{{ item.title }}</a>
       </h3>
-      <p class="tool-description">Comprehensive guide to using filters in Kibana for log analysis and data visualization.</p>
+      <p class="tool-description">{{ item.description | default: "Cybersecurity tool or guide for security professionals." }}</p>
     </div>
+    {% endfor %}
     
-    <!-- Add more tool cards here as you create more tools -->
-    <!--
-    <div class="tool-card">
-      <h3 class="tool-title">
-        <a href="{{ '/tools/your-next-tool' | relative_url }}">Your Next Tool</a>
-      </h3>
-      <p class="tool-description">Description of your next cybersecurity tool or guide.</p>
-    </div>
-    -->
   </div>
 </div>

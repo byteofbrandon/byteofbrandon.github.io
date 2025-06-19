@@ -103,19 +103,30 @@ hr {
 </style>
 
 <div class="archive">
+  
+  <div class="archive">
   <div class="ctf-grid">
-    <!-- Network Security Challenge Card -->
+    {% for item in site.ctfs %}
     <div class="ctf-card">
       <h3 class="ctf-title">
-        <a href="/ctfs/net_sec_challenge/">Network Security Challenge</a>
+        <a href="{{ item.url }}">{{ item.title }}</a>
       </h3>
-      <p class="ctf-description">Comprehensive network security CTF challenge involving packet analysis, vulnerability assessment, and network forensics.</p>
+      <p class="ctf-description">{{ item.description | default: "CTF challenge walkthrough with detailed analysis and solution." }}</p>
       <div class="ctf-meta">
-        <span class="difficulty-medium">MEDIUM</span>
-        <span class="category-badge">Network Security</span>
-        <span>Networking</span>
+        {% if item.difficulty %}
+        <span class="difficulty-{{ item.difficulty | downcase }}">
+          {{ item.difficulty | upcase }}
+        </span>
+        {% endif %}
+        {% if item.category %}
+        <span class="category-badge">{{ item.category }}</span>
+        {% endif %}
+        {% if item.platform %}
+        <span>{{ item.platform }}</span>
+        {% endif %}
       </div>
     </div>
+    {% endfor %}
     
     {% for item in site.ctfs %}
     <div class="ctf-card">

@@ -335,16 +335,24 @@ collections:
     permalink: /scripts/:title/
   ctf:
     output: true
-    permalink: /:collection/:name/
+    permalink: /ctfs/:name/
 
 defaults:
   - scope:
       path: ""
-      type: tools
+      type: "scripts"
     values:
-      layout: page_custom
+      layout: "archive"
+      author_profile: true
   - scope:
       path: ""
-      type: scripts
+      type: "tools"
     values:
-      layout: page_custom
+      layout: "archive"
+      author_profile: true
+  - scope:
+      path: ""
+      type: "ctfs"
+    values:
+      layout: "archive"
+      author_profile: true

@@ -12,6 +12,7 @@ header:
       <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Mastering data filtering and query techniques</p>
     </div>
 title: "Kibana Filters Overview"
+description: "Comprehensive guide to using filters in Kibana for log analysis and data visualization.color"
 tags: [kibana, filters, elasticsearch, tools]
 last_updated: 2025-06-11
 toc: true
