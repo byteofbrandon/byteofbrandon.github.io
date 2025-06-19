@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: archive
 author_profile: true
 header:
   overlay_color: "#000"
@@ -169,20 +169,22 @@ hr {
   border-color: #00ffd5;
 }
 
-.osint-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-  max-width: 1200px;
+body .osint-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+  max-width: 1200px !important;
+  width: 100% !important;
 }
 
-.osint-card {
-  background-color: #1a1a1a;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+body .osint-card {
+  background-color: #1a1a1a !important;
+  padding: 1.5rem !important;
+  border-radius: 8px !important;
+  border: 1px solid #333 !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  margin-bottom: 0 !important;
 }
 
 .osint-card:hover {
@@ -210,25 +212,25 @@ hr {
 }
 
 @media (max-width: 768px) {
-  .osint-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  body .osint-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
   
-  .osint-card {
-    padding: 1rem;
+  body .osint-card {
+    padding: 1rem !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .osint-grid {
-    grid-template-columns: repeat(2, 1fr);
+  body .osint-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (min-width: 1025px) {
-  .osint-grid {
-    grid-template-columns: repeat(3, 1fr);
+  body .osint-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 </style>
