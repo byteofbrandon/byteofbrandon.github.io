@@ -1,8 +1,8 @@
 ---
 layout: archive
 author_profile: true
-title: "Network Reconnaissance CTF Walkthrough"
-description: "Comprehensive network security CTF challenge involving packet analysis, vulnerability assessment, and network forensics."
+title: "Net Sec Challenge CTF Walkthrough"
+description: "Write-up for the THM room Net Sec Challenge, covering the commands nmap, telnet, and hydra"
 tags: [ctf, nmap, telnet, hydra, reconnaissance, tryhackme]
 difficulty: "Medium"
 category: "Network Security"
