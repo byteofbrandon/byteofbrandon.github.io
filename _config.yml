@@ -333,7 +333,7 @@ collections:
   scripts:
     output: true
     permalink: /scripts/:title/
-  ctf:
+  ctfs:
     output: true
     permalink: /ctfs/:name/
 
