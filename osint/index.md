@@ -174,17 +174,19 @@ body .osint-grid {
   grid-template-columns: repeat(2, 1fr) !important;
   gap: 2rem !important;
   margin-top: 2rem !important;
-  max-width: 1200px !important;
   width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 body .osint-card {
   background-color: #1a1a1a !important;
-  padding: 1.5rem !important;
+  padding: 2rem !important;
   border-radius: 8px !important;
   border: 1px solid #333 !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
   margin-bottom: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .osint-card:hover {
