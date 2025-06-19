@@ -1,6 +1,13 @@
 ---
 layout: archive
 author_profile: true
+title: "Network Reconnaissance CTF Walkthrough"
+description: "Comprehensive network security CTF challenge involving packet analysis, vulnerability assessment, and network forensics."
+tags: [ctf, nmap, telnet, hydra, reconnaissance, tryhackme]
+difficulty: "Medium"
+category: "Network Security"
+platform: "TryHackMe"
+last_updated: 2025-06-18
 header:
   overlay_color: "#000"
   overlay_filter: "0.4"
@@ -11,13 +18,6 @@ header:
       <h1 style="margin-bottom: 0.3rem; color: #00ffd5; font-family: 'Fira Code', monospace;">Network Reconnaissance CTF</h1>
       <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Port scanning, service enumeration, and credential attacks</p>
     </div>
-title: "Network Reconnaissance CTF Walkthrough"
-description: "Comprehensive network security CTF challenge involving packet analysis, vulnerability assessment, and network forensics."
-tags: [ctf, nmap, telnet, hydra, reconnaissance, tryhackme]
-difficulty: "Medium"
-category: "Network Security"
-platform: "TryHackMe"
-last_updated: 2025-06-18
 toc: true
 toc_label: "Challenge Steps"
 toc_icon: "flag"
