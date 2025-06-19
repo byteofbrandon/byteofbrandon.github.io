@@ -182,7 +182,7 @@ hr {
 
 <div class="content-wrapper">
 
-## Challenge Overview
+Challenge Overview
 
 <div class="target-info">
 <h4>Target Information</h4>
@@ -193,9 +193,6 @@ hr {
 
 This CTF focuses on fundamental network reconnaissance techniques including port scanning, service enumeration, and basic credential attacks. We'll systematically explore the target to answer each question.
 
----
-
-## Question 1: Highest Port Below 10,000
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the highest port number being open less than 10,000?
@@ -219,9 +216,6 @@ nmap 10.10.28.88 -p -10000
 Answer: 8080
 </div>
 
----
-
-## Question 2: Port Above 10,000
 
 <div class="challenge-section">
 <strong>Question:</strong> There is an open port outside the common 1000 ports; it is above 10,000. What is it?
@@ -245,9 +239,6 @@ nmap 10.10.28.88 -n -T4 -p 10000-
 Answer: 10021
 </div>
 
----
-
-## Question 3: Total TCP Ports
 
 <div class="challenge-section">
 <strong>Question:</strong> How many TCP ports are open?
@@ -275,9 +266,6 @@ Total: 6 open TCP ports
 Answer: 6
 </div>
 
----
-
-## Question 4: HTTP Server Header Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the flag hidden in the HTTP server header?
@@ -307,9 +295,6 @@ Host: hacker<br>
 Flag: THM{web_server_25352}
 </div>
 
----
-
-## Question 5: SSH Server Header Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> What is the flag hidden in the SSH server header?
@@ -333,9 +318,6 @@ telnet 10.10.28.88 22
 Flag: THM{946219583339}
 </div>
 
----
-
-## Question 6: FTP Server Version
 
 <div class="challenge-section">
 <strong>Question:</strong> We have an FTP server listening on a nonstandard port. What is the version of the FTP server?
@@ -359,9 +341,6 @@ nmap 10.10.28.88 -sV -p 10021
 Answer: vsftpd 3.0.5
 </div>
 
----
-
-## Question 7: FTP Account Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> We learned two usernames using social engineering: eddie and quinn. What is the flag hidden in one of these two account files and accessible via FTP?
@@ -437,9 +416,6 @@ retr ftp_flag.txt<br>
 Flag: THM{321452667098}
 </div>
 
----
-
-## Question 8: Web Challenge Flag
 
 <div class="challenge-section">
 <strong>Question:</strong> Browsing to http://10.10.28.88:8080 displays a small challenge that will give you a flag once you solve it. What is the flag?
@@ -462,7 +438,5 @@ nmap 10.10.28.88 -sN
 <div class="flag-box">
 Flag: THM{f7443f99}
 </div>
-
----
 
 </div>
