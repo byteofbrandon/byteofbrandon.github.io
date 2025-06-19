@@ -128,39 +128,5 @@ hr {
     </div>
     {% endfor %}
     
-    {% for item in site.ctfs %}
-    <div class="ctf-card">
-      <h3 class="ctf-title">
-        <a href="{{ item.url }}">{{ item.title }}</a>
-      </h3>
-      <p class="ctf-description">{{ item.description | default: "CTF challenge walkthrough with detailed analysis and solution." }}</p>
-      <div class="ctf-meta">
-        {% if item.difficulty %}
-        <span class="difficulty-{{ item.difficulty | downcase }}">
-          {{ item.difficulty | upcase }}
-        </span>
-        {% endif %}
-        {% if item.category %}
-        <span class="category-badge">{{ item.category }}</span>
-        {% endif %}
-        {% if item.platform %}
-        <span>{{ item.platform }}</span>
-        {% endif %}
-      </div>
-    </div>
-    {% endfor %}
-    
-    <!-- If no CTFs exist yet, show a placeholder -->
-    {% if site.ctfs.size == 0 %}
-    <div class="ctf-card">
-      <h3 class="ctf-title">
-        <a href="#" onclick="return false;" style="color: #666;">Coming Soon</a>
-      </h3>
-      <p class="ctf-description">Additional CTF walkthroughs will be added here as challenges are completed.</p>
-      <div class="ctf-meta">
-        <span class="category-badge">Various Categories</span>
-      </div>
-    </div>
-    {% endif %}
   </div>
 </div>
