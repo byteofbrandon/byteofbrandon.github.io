@@ -79,6 +79,7 @@ hr {
   gap: 1rem;
   font-size: 0.8rem;
   color: #888;
+  flex-wrap: wrap;
 }
 
 .difficulty-easy {
@@ -100,53 +101,101 @@ hr {
   border-radius: 3px;
   font-size: 0.7rem;
 }
+
+.date-badge {
+  color: #888;
+  font-size: 0.7rem;
+}
+
+.stats-section {
+  background: rgba(0, 255, 213, 0.08);
+  border: 1px solid #00ffd5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  padding: 0.5rem;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffd5;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #aaa;
+}
 </style>
 
 <div class="archive">
   
-  <div class="archive">
-  <div class="ctf-grid">
-    {% for item in site.ctfs %}
-    <div class="ctf-card">
-      <h3 class="ctf-title">
-        <a href="{{ item.url }}">{{ item.title }}</a>
-      </h3>
-      <p class="ctf-description">{{ item.description | default: "CTF challenge walkthrough with detailed analysis and solution." }}</p>
-      <div class="ctf-meta">
-        {% if item.difficulty %}
-        <span class="difficulty-{{ item.difficulty | downcase }}">
-          {{ item.difficulty | upcase }}
-        </span>
-        {% endif %}
-        {% if item.category %}
-        <span class="category-badge">{{ item.category }}</span>
-        {% endif %}
-        {% if item.platform %}
-        <span>{{ item.platform }}</span>
-        {% endif %}
+  <!-- Statistics Section -->
+  <div class="stats-section">
+    <h3 style="margin-top: 0;">Challenge Statistics</h3>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">{{ site.ctfs.size }}</div>
+        <div class="stat-label">Total Challenges</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ site.ctfs | where: "difficulty", "Easy" | size }}</div>
+        <div class="stat-label">Easy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ site.ctfs | where: "difficulty", "Medium" | size }}</div>
+        <div class="stat-label">Medium</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ site.ctfs | where: "difficulty", "Hard" | size }}</div>
+        <div class="stat-label">Hard</div>
       </div>
     </div>
-    {% endfor %}
-    
-    {% for item in site.ctfs %}
+  </div>
+
+  <!-- CTF Cards Grid -->
+  <div class="ctf-grid">
+    {% assign sorted_ctfs = site.ctfs | sort: 'last_updated' | reverse %}
+    {% for item in sorted_ctfs %}
     <div class="ctf-card">
       <h3 class="ctf-title">
-        <a href="{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
       </h3>
       <p class="ctf-description">{{ item.description | default: "CTF challenge walkthrough with detailed analysis and solution." }}</p>
       <div class="ctf-meta">
         {% if item.difficulty %}
         <span class="difficulty-{{ item.difficulty | downcase }}">
-          {{ item.difficulty | upcase }}
+          <strong>{{ item.difficulty | upcase }}</strong>
         </span>
         {% endif %}
         {% if item.category %}
         <span class="category-badge">{{ item.category }}</span>
         {% endif %}
         {% if item.platform %}
-        <span>{{ item.platform }}</span>
+        <span class="category-badge" style="background: rgba(255, 76, 240, 0.2); color: #ff4cf0;">{{ item.platform }}</span>
+        {% endif %}
+        {% if item.last_updated %}
+        <span class="date-badge">Updated: {{ item.last_updated | date: "%B %d, %Y" }}</span>
         {% endif %}
       </div>
+      {% if item.tags %}
+      <div style="margin-top: 0.5rem;">
+        {% for tag in item.tags limit:3 %}
+        <span style="background: rgba(0, 0, 0, 0.3); color: #ccc; padding: 0.1rem 0.3rem; border-radius: 2px; font-size: 0.6rem; margin-right: 0.2rem;">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
     {% endfor %}
     
