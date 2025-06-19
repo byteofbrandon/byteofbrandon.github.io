@@ -230,4 +230,19 @@ body .osint-card {
     gap: 2rem !important;
   }
 }
+
+@media (min-width: 1400px) {
+  body .osint-grid {
+    max-width: none !important;
+    margin: 2rem auto !important;
+  }
+  
+  body .archive,
+  body #main,
+  body .initial-content {
+    max-width: none !important;
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+}
 </style>
