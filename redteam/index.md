@@ -1,0 +1,590 @@
+---
+layout: archive
+author_profile: true
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.4"
+  overlay_image: /assets/images/redteam-banner.png
+  height: 600px
+  caption: >
+    <div style="text-align: left; padding-left: 2rem; max-width: 600px;">
+      <h1 style="margin-bottom: 0.3rem; color: #00ffd5; font-family: 'Fira Code', monospace;">Red Team Knowledge Base</h1>
+      <p style="margin-top: 0; color: #ccc; font-family: 'Fira Code', monospace;">Offensive security methodologies, techniques, and procedures</p>
+    </div>
+title: "Red Team"
+permalink: /redteam/
+---
+
+<style>
+/* Base Typography */
+h1, h2, h3, h4 {
+  color: #00ffd5 !important;
+  font-family: 'Fira Code', monospace !important;
+}
+
+p, li {
+  color: #cccccc !important;
+  font-family: 'Fira Code', monospace !important;
+}
+
+a {
+  color: #00ffd5 !important;
+  text-decoration: underline !important;
+}
+
+a:hover {
+  color: #ff4cf0 !important;
+}
+
+body {
+  background-color: #0f0f0f !important;
+}
+
+/* Main Layout */
+.redteam-container {
+  display: grid;
+  grid-template-columns: 300px 1fr 250px;
+  min-height: 100vh;
+  gap: 0;
+  margin-top: 2rem;
+}
+
+/* Left Sidebar - Methodology Tree */
+.methodology-sidebar {
+  background: rgba(0, 255, 213, 0.02);
+  border-right: 1px solid #00ffd5;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.methodology-sidebar h3 {
+  color: #00ffd5;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.methodology-tree {
+  list-style: none;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.methodology-tree li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.methodology-tree li::before {
+  content: '▶';
+  color: #00ffd5;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.methodology-tree li.active::before {
+  content: '▼';
+}
+
+.methodology-tree a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.methodology-tree a:hover {
+  color: #00ffd5;
+}
+
+.methodology-tree .sub-items {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid #333;
+  list-style: none;
+}
+
+.methodology-tree .sub-items li::before {
+  content: '•';
+  color: #ff4cf0;
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem;
+  background: #0f0f0f;
+}
+
+.content-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.search-container {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ccc;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #00ffd5;
+  box-shadow: 0 0 10px rgba(0, 255, 213, 0.3);
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+/* Quick Actions */
+.quick-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.quick-btn {
+  padding: 0.7rem 1.2rem;
+  background: rgba(0, 255, 213, 0.1);
+  border: 1px solid #00ffd5;
+  border-radius: 6px;
+  color: #00ffd5;
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.quick-btn:hover {
+  background: rgba(0, 255, 213, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.note-card {
+  background: rgba(0, 255, 213, 0.05);
+  border: 1px solid #00ffd5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffd5, #ff4cf0);
+}
+
+.note-card:hover {
+  background: rgba(0, 255, 213, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 255, 213, 0.2);
+}
+
+.note-title {
+  color: #00ffd5;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  display: block;
+}
+
+.note-excerpt {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.note-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(255, 76, 240, 0.2);
+  color: #ff4cf0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag.recon {
+  background: rgba(0, 255, 213, 0.2);
+  color: #00ffd5;
+}
+
+.tag.exploitation {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+.tag.post-exploit {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.last-updated {
+  color: #666;
+  font-size: 0.7rem;
+  margin-left: auto;
+}
+
+/* Right Sidebar */
+.right-sidebar {
+  background: rgba(0, 255, 213, 0.02);
+  border-left: 1px solid #00ffd5;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.graph-container {
+  margin-bottom: 2rem;
+}
+
+.graph-container h4 {
+  color: #00ffd5;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.mini-graph {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.backlinks {
+  list-style: none;
+  padding: 0;
+}
+
+.backlinks li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border-left: 2px solid #ff4cf0;
+}
+
+.backlinks a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.backlinks a:hover {
+  color: #ff4cf0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .redteam-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .methodology-sidebar, .right-sidebar {
+    display: none;
+  }
+}
+
+/* Filter buttons */
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #ccc;
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: rgba(0, 255, 213, 0.1);
+  border-color: #00ffd5;
+  color: #00ffd5;
+}
+
+/* Terminal cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: blink 1s infinite;
+}
+</style>
+
+<div class="redteam-container">
+  <!-- Left Sidebar - Methodology Tree -->
+  <div class="methodology-sidebar">
+    <h3>Methodology</h3>
+    <ul class="methodology-tree">
+      <li class="active">
+        <a href="#reconnaissance">Reconnaissance</a>
+        <ul class="sub-items">
+          <li><a href="#passive-recon">Passive Recon</a></li>
+          <li><a href="#active-recon">Active Recon</a></li>
+          <li><a href="#osint">OSINT</a></li>
+          <li><a href="#social-engineering">Social Engineering</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#enumeration">Enumeration</a>
+        <ul class="sub-items">
+          <li><a href="#port-scanning">Port Scanning</a></li>
+          <li><a href="#service-enum">Service Enumeration</a></li>
+          <li><a href="#web-enum">Web Enumeration</a></li>
+          <li><a href="#smb-enum">SMB Enumeration</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#exploitation">Exploitation</a>
+        <ul class="sub-items">
+          <li><a href="#web-exploits">Web Exploits</a></li>
+          <li><a href="#buffer-overflow">Buffer Overflow</a></li>
+          <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+          <li><a href="#lateral-movement">Lateral Movement</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#post-exploitation">Post-Exploitation</a>
+        <ul class="sub-items">
+          <li><a href="#persistence">Persistence</a></li>
+          <li><a href="#data-exfiltration">Data Exfiltration</a></li>
+          <li><a href="#covering-tracks">Covering Tracks</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Tools</h3>
+    <ul class="methodology-tree">
+      <li><a href="#nmap">Nmap</a></li>
+      <li><a href="#burp-suite">Burp Suite</a></li>
+      <li><a href="#metasploit">Metasploit</a></li>
+      <li><a href="#gobuster">Gobuster</a></li>
+      <li><a href="#sqlmap">SQLMap</a></li>
+      <li><a href="#hydra">Hydra</a></li>
+      <li><a href="#john">John the Ripper</a></li>
+      <li><a href="#bloodhound">BloodHound</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="content-header">
+      <h2>Red Team Knowledge Base</h2>
+      <p style="color: #aaa; margin-top: 0.5rem;">Offensive security methodologies, techniques, and procedures</p>
+    </div>
+
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search notes, techniques, tools... [Ctrl+K]">
+    </div>
+
+    <div class="quick-actions">
+      <a href="#new-note" class="quick-btn">+ New Note</a>
+      <a href="#templates" class="quick-btn">📋 Templates</a>
+      <a href="#methodology" class="quick-btn">🎯 Methodology</a>
+      <a href="#export" class="quick-btn">📤 Export</a>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="reconnaissance">Reconnaissance</button>
+      <button class="filter-btn" data-filter="enumeration">Enumeration</button>
+      <button class="filter-btn" data-filter="exploitation">Exploitation</button>
+      <button class="filter-btn" data-filter="post-exploitation">Post-Exploitation</button>
+      <button class="filter-btn" data-filter="tools">Tools</button>
+    </div>
+
+    <div class="notes-grid">
+      {% for item in site.redteam %}
+      <div class="note-card" data-category="{{ item.category | downcase }}">
+        <a href="{{ item.url }}" class="note-title">{{ item.title }}</a>
+        <div class="note-excerpt">{{ item.description | default: item.excerpt | strip_html | truncate: 150 }}</div>
+        <div class="note-meta">
+          {% if item.phase %}
+          <span class="tag {{ item.phase | downcase }}">{{ item.phase }}</span>
+          {% endif %}
+          {% if item.category %}
+          <span class="tag">{{ item.category }}</span>
+          {% endif %}
+          {% if item.tools %}
+            {% for tool in item.tools %}
+            <span class="tag">{{ tool }}</span>
+            {% endfor %}
+          {% endif %}
+          {% if item.last_updated %}
+          <span class="last-updated">{{ item.last_updated | date: "%b %d, %Y" }}</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div class="right-sidebar">
+    <div class="graph-container">
+      <h4>Knowledge Graph</h4>
+      <div class="mini-graph">
+        📊 Interactive visualization
+      </div>
+    </div>
+
+    <h4>Recently Updated</h4>
+    <ul class="backlinks">
+      {% assign sorted_notes = site.redteam | sort: 'last_updated' | reverse %}
+      {% for item in sorted_notes limit: 5 %}
+      <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h4>Popular Tags</h4>
+    <ul class="backlinks">
+      <li><a href="#nmap">Nmap</a></li>
+      <li><a href="#enumeration">Enumeration</a></li>
+      <li><a href="#privesc">Privilege Escalation</a></li>
+      <li><a href="#active-directory">Active Directory</a></li>
+      <li><a href="#web-exploitation">Web Exploitation</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Search functionality
+  const searchInput = document.querySelector('.search-input');
+  const noteCards = document.querySelectorAll('.note-card');
+  
+  searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    
+    noteCards.forEach(card => {
+      const title = card.querySelector('.note-title').textContent.toLowerCase();
+      const excerpt = card.querySelector('.note-excerpt').textContent.toLowerCase();
+      const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+      
+      if (title.includes(searchTerm) || excerpt.includes(searchTerm) || tags.includes(searchTerm)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Filter cards
+      noteCards.forEach(card => {
+        if (filter === 'all') {
+          card.style.display = 'block';
+        } else {
+          const cardCategory = card.dataset.category;
+          const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+          
+          if (cardCategory === filter || tags.includes(filter)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+
+  // Sidebar navigation
+  const sidebarLinks = document.querySelectorAll('.methodology-tree > li > a');
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      parent.classList.toggle('active');
+    });
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
+
+  // Focus effects
+  searchInput.addEventListener('focus', function() {
+    this.style.background = 'rgba(0, 255, 213, 0.1)';
+  });
+  
+  searchInput.addEventListener('blur', function() {
+    this.style.background = 'rgba(0, 0, 0, 0.5)';
+  });
+});
+</script>
