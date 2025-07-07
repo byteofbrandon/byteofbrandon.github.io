@@ -318,4 +318,370 @@ nmap -O --osscan-guess target.com
 
 | Template | Speed | Stealth | Use Case |
 |----------|-------|---------|----------|
-| `-T0` (Paranoid) | Very
+| `-T0` (Paranoid) | Very Slow | Maximum | IDS evasion |
+| `-T1` (Sneaky) | Slow | High | Stealth scanning |
+| `-T2` (Polite) | Slow | Medium | Minimize bandwidth |
+| `-T3` (Normal) | Normal | Low | Default timing |
+| `-T4` (Aggressive) | Fast | Very Low | Fast networks |
+| `-T5` (Insane) | Very Fast | None | Very fast networks |
+
+<div class="command-block">
+# Paranoid timing for maximum stealth
+nmap -T0 -sS target.com
+
+# Aggressive timing for speed
+nmap -T4 -sS target.com
+
+# Insane timing (may miss results)
+nmap -T5 -sS target.com
+</div>
+
+### Custom Timing Options
+
+<div class="command-block">
+# Custom timing controls
+nmap --min-rate 1000 --max-rate 5000 target.com
+
+# Packet delays
+nmap --scan-delay 1s target.com
+nmap --max-scan-delay 2s target.com
+
+# Parallelism
+nmap --min-parallelism 50 --max-parallelism 100 target.com
+</div>
+
+---
+
+## Host Discovery
+
+### Ping Scans
+
+<div class="technique-box">
+<h5>🏓 Ping Scan Options</h5>
+<p>Different methods to discover live hosts before port scanning.</p>
+
+<div class="command-block">
+# ICMP ping (default)
+nmap -sn target.com
+
+# TCP SYN ping
+nmap -PS22,80,443 target.com
+
+# TCP ACK ping
+nmap -PA22,80,443 target.com
+
+# UDP ping
+nmap -PU53,161,137 target.com
+
+# Skip ping (assume host is up)
+nmap -Pn target.com
+</div>
+</div>
+
+### ARP Ping
+
+<div class="command-block">
+# ARP ping for local network
+nmap -PR 192.168.1.0/24
+
+# List scan (no port scan)
+nmap -sL 192.168.1.0/24
+</div>
+
+---
+
+## Firewall Evasion
+
+### Fragmentation
+
+<div class="technique-box">
+<h5>🧩 Packet Fragmentation</h5>
+<p>Break packets into smaller fragments to evade firewalls.</p>
+
+<div class="command-block">
+# Fragment packets
+nmap -f target.com
+
+# Use specific MTU
+nmap --mtu 24 target.com
+</div>
+</div>
+
+### Decoy Scanning
+
+<div class="technique-box">
+<h5>🎭 Decoy Scanning</h5>
+<p>Use decoy IP addresses to mask your real IP.</p>
+
+<div class="command-block">
+# Use decoy IPs
+nmap -D 192.168.1.100,192.168.1.200,ME target.com
+
+# Random decoys
+nmap -D RND:10 target.com
+</div>
+</div>
+
+### Source Port Spoofing
+
+<div class="command-block">
+# Use specific source port
+nmap --source-port 53 target.com
+
+# Use data length
+nmap --data-length 25 target.com
+</div>
+
+---
+
+## Nmap Scripting Engine (NSE)
+
+### Script Categories
+
+| Category | Description | Example |
+|----------|-------------|---------|
+| `auth` | Authentication scripts | `nmap --script auth target.com` |
+| `broadcast` | Network broadcast discovery | `nmap --script broadcast` |
+| `brute` | Brute force attacks | `nmap --script brute target.com` |
+| `default` | Default scripts | `nmap -sC target.com` |
+| `discovery` | Network discovery | `nmap --script discovery target.com` |
+| `dos` | Denial of service | `nmap --script dos target.com` |
+| `exploit` | Exploit scripts | `nmap --script exploit target.com` |
+| `external` | External resource scripts | `nmap --script external target.com` |
+| `fuzzer` | Fuzzing scripts | `nmap --script fuzzer target.com` |
+| `intrusive` | Intrusive scripts | `nmap --script intrusive target.com` |
+| `malware` | Malware detection | `nmap --script malware target.com` |
+| `safe` | Safe scripts | `nmap --script safe target.com` |
+| `version` | Version detection | `nmap --script version target.com` |
+| `vuln` | Vulnerability detection | `nmap --script vuln target.com` |
+
+### Common NSE Scripts
+
+<div class="technique-box">
+<h5>🔧 Popular NSE Scripts</h5>
+
+<div class="command-block">
+# HTTP enumeration
+nmap --script http-enum target.com
+
+# SMB enumeration
+nmap --script smb-enum-shares target.com
+
+# SSL/TLS information
+nmap --script ssl-enum-ciphers target.com
+
+# Vulnerability scanning
+nmap --script vuln target.com
+
+# Banner grabbing
+nmap --script banner target.com
+</div>
+</div>
+
+### Script Arguments
+
+<div class="command-block">
+# Pass arguments to scripts
+nmap --script http-enum --script-args http-enum.basepath=/admin target.com
+
+# Multiple arguments
+nmap --script smb-brute --script-args userdb=users.txt,passdb=passwords.txt target.com
+</div>
+
+---
+
+## Output Formats
+
+### Standard Output Options
+
+<div class="command-block">
+# Normal output
+nmap -oN scan_results.txt target.com
+
+# XML output
+nmap -oX scan_results.xml target.com
+
+# Grepable output
+nmap -oG scan_results.grep target.com
+
+# All formats
+nmap -oA scan_results target.com
+</div>
+
+### Verbosity Control
+
+<div class="command-block">
+# Increase verbosity
+nmap -v target.com
+nmap -vv target.com
+
+# Debug output
+nmap -d target.com
+nmap -dd target.com
+
+# Packet trace
+nmap --packet-trace target.com
+</div>
+
+---
+
+## Advanced Techniques
+
+### TCP Window Scan
+
+<div class="technique-box">
+<h5>🪟 TCP Window Scan</h5>
+<p>Differentiates open and closed ports by examining TCP window sizes.</p>
+
+<div class="command-block">
+nmap -sW target.com
+</div>
+</div>
+
+### TCP Maimon Scan
+
+<div class="technique-box">
+<h5>📬 TCP Maimon Scan</h5>
+<p>Sends FIN/ACK packets to evade certain firewalls.</p>
+
+<div class="command-block">
+nmap -sM target.com
+</div>
+</div>
+
+### Idle Scan
+
+<div class="technique-box">
+<h5>😴 Idle Scan (Zombie Scan)</h5>
+<p>Uses a zombie host to scan targets anonymously.</p>
+
+<div class="command-block">
+# Find zombie hosts
+nmap -O -v 192.168.1.0/24
+
+# Perform idle scan
+nmap -sI zombie_host target.com
+</div>
+</div>
+
+---
+
+## Practical Examples
+
+### Basic Network Discovery
+
+<div class="command-block">
+# Quick network discovery
+nmap -sn 192.168.1.0/24
+
+# Comprehensive host discovery
+nmap -sn -PS22,80,443 -PA22,80,443 -PU53,161,137 192.168.1.0/24
+</div>
+
+### Web Server Enumeration
+
+<div class="command-block">
+# Web server scanning
+nmap -sS -sV -p 80,443,8080,8443 --script http-enum,http-headers target.com
+
+# SSL/TLS analysis
+nmap -sS -p 443 --script ssl-enum-ciphers,ssl-cert target.com
+</div>
+
+### Database Server Scanning
+
+<div class="command-block">
+# Database ports
+nmap -sS -sV -p 1433,3306,5432,1521,27017 target.com
+
+# MySQL enumeration
+nmap -sS -p 3306 --script mysql-info,mysql-enum target.com
+</div>
+
+### Windows Domain Enumeration
+
+<div class="command-block">
+# SMB enumeration
+nmap -sS -p 445 --script smb-enum-shares,smb-enum-users,smb-os-discovery target.com
+
+# Kerberos enumeration
+nmap -sS -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm=DOMAIN target.com
+</div>
+
+---
+
+## Optimization Tips
+
+<div class="tip-section">
+<h4>💡 Performance Tips</h4>
+
+**For Large Networks:**
+- Use `-sn` for initial host discovery
+- Scan top ports first with `--top-ports`
+- Use timing templates appropriately (`-T3` or `-T4`)
+- Consider using masscan for initial port discovery
+
+**For Stealth:**
+- Use `-T1` or `-T2` timing
+- Fragment packets with `-f`
+- Use decoy scanning `-D`
+- Scan during business hours
+- Randomize scan order with `--randomize-hosts`
+
+**For Accuracy:**
+- Use multiple scan types (`-sS -sU`)
+- Enable version detection (`-sV`)
+- Use appropriate scripts (`--script`)
+- Verify results with different techniques
+</div>
+
+---
+
+## Common Nmap Commands Reference
+
+<div class="command-block">
+# Quick scan
+nmap target.com
+
+# Comprehensive scan
+nmap -sS -sV -O -A target.com
+
+# Stealth scan
+nmap -sS -T2 -f target.com
+
+# UDP scan
+nmap -sU --top-ports 1000 target.com
+
+# Script scan
+nmap -sC target.com
+
+# Vulnerability scan
+nmap --script vuln target.com
+
+# Port range scan
+nmap -p 1-10000 target.com
+
+# Fast scan
+nmap -F target.com
+
+# Scan with output
+nmap -oA results target.com
+</div>
+
+---
+
+<div class="related-notes">
+<h4>🔗 Related Notes</h4>
+<ul>
+<li><a href="/notes/service-enumeration">Service Enumeration Techniques</a></li>
+<li><a href="/notes/stealth-scanning">Advanced Stealth Scanning</a></li>
+<li><a href="/notes/firewall-evasion">Firewall Evasion Methods</a></li>
+<li><a href="/notes/nse-scripts">NSE Script Development</a></li>
+<li><a href="/notes/network-discovery">Network Discovery Techniques</a></li>
+</ul>
+</div>
+
+<div class="warning-section">
+<h4>⚠️ Legal Disclaimer</h4>
+<p>Only use these techniques on networks you own or have explicit permission to test. Unauthorized scanning is illegal and unethical. Always follow responsible disclosure practices.</p>
+</div>
