@@ -37,9 +37,39 @@
         /* Header */
         .header {
             background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            padding: 4rem 2rem;
+            padding: 2rem 2rem 4rem 2rem;
             text-align: center;
             border-bottom: 1px solid #00ffd5;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .header-nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-nav a:hover {
+            color: #00ffd5;
+            background: rgba(0, 255, 213, 0.1);
+        }
+
+        .header-nav a.active {
+            color: #00ffd5;
+            background: rgba(0, 255, 213, 0.2);
         }
 
         .header h1 {
@@ -372,6 +402,21 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .header-nav {
+                gap: 1rem;
+            }
+            
+            .header-nav a {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
         /* Terminal cursor animation */
         @keyframes blink {
             0%, 50% { opacity: 1; }
@@ -385,6 +430,13 @@
 </head>
 <body>
     <div class="header">
+        <nav class="header-nav">
+            <a href="index.html" class="active">Red Team</a>
+            <a href="osint.html">OSINT</a>
+            <a href="blue-team.html">Blue Team</a>
+            <a href="tools.html">Tools</a>
+            <a href="methodology.html">Methodology</a>
+        </nav>
         <h1>Red Team Knowledge Base</h1>
         <p>Offensive security methodologies, techniques, and procedures</p>
     </div>
@@ -511,6 +563,50 @@
                         <span class="tag post-exploit">Post-Exploitation</span>
                         <span class="tag">Registry</span>
                         <span class="last-updated">Jan 4, 2025</span>
+                    </div>
+                </div>
+
+                <div class="note-card" data-category="reconnaissance">
+                    <a href="#subdomain-enum" class="note-title">Subdomain Enumeration</a>
+                    <div class="note-excerpt">Techniques for discovering subdomains using DNS enumeration and certificate transparency.</div>
+                    <div class="note-meta">
+                        <span class="tag recon">Reconnaissance</span>
+                        <span class="tag">DNSrecon</span>
+                        <span class="tag">Amass</span>
+                        <span class="last-updated">Jan 3, 2025</span>
+                    </div>
+                </div>
+
+                <div class="note-card" data-category="exploitation">
+                    <a href="#buffer-overflow" class="note-title">Buffer Overflow Exploitation</a>
+                    <div class="note-excerpt">Step-by-step guide to exploiting buffer overflow vulnerabilities in Windows applications.</div>
+                    <div class="note-meta">
+                        <span class="tag exploitation">Exploitation</span>
+                        <span class="tag">Windows</span>
+                        <span class="tag">Immunity Debugger</span>
+                        <span class="last-updated">Jan 2, 2025</span>
+                    </div>
+                </div>
+
+                <div class="note-card" data-category="post-exploitation">
+                    <a href="#lateral-movement" class="note-title">Lateral Movement in Active Directory</a>
+                    <div class="note-excerpt">Techniques for moving laterally through Active Directory environments using various tools.</div>
+                    <div class="note-meta">
+                        <span class="tag post-exploit">Post-Exploitation</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">BloodHound</span>
+                        <span class="last-updated">Jan 1, 2025</span>
+                    </div>
+                </div>
+
+                <div class="note-card" data-category="tools">
+                    <a href="#burp-suite-guide" class="note-title">Burp Suite Professional</a>
+                    <div class="note-excerpt">Comprehensive guide to using Burp Suite for web application security testing.</div>
+                    <div class="note-meta">
+                        <span class="tag">Tools</span>
+                        <span class="tag">Burp Suite</span>
+                        <span class="tag">Web Testing</span>
+                        <span class="last-updated">Dec 31, 2024</span>
                     </div>
                 </div>
             </div>
