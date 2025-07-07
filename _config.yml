@@ -332,7 +332,7 @@ collections:
     permalink: /tools/:title/
   scripts:
     output: true
-    permalink: /scripts/:title/
+    permalink: /redteam/:title/
   ctfs:
     output: true
     permalink: /ctfs/:name/
@@ -340,7 +340,7 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: "scripts"
+      type: "redteam"
     values:
       layout: "archive"
       author_profile: true
